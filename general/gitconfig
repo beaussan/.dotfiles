@@ -1,0 +1,5 @@
+[user]
+	name = Nicolas Beaussart
+	email = nic.beaussart@gmail.com
+[push]
+	default = simple

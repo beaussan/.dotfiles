@@ -1,0 +1,18 @@
+- defaults:
+    link:
+#     relink: true
+      create: true
+      force: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc: general/zshrc
+    ~/.config/yabar/yabar.conf: general/yabar.conf
+    ~/.gitconfig: general/gitconfig
+    ~/.config/xfce4/terminal/terminalrc: general/xfce4termrc
+    ~/.conkyrc: general/conkyrc
+    ~/.Xresources: general/Xresources
+    ~/scripts: general/scripts
+    ~/.i3/config: general/i3config
+    ~/.i3blocks.conf: general/i3blocks.conf
