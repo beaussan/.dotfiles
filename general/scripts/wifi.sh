@@ -1,11 +1,9 @@
 #!/bin/bash
 
-#name=`iwconfig  | grep ESSID | awk '{print $4}' | tr -d 'ESID:"'`
-
-name="off"
+name=`iwconfig 2>/dev/null | grep 'ESSID:' | cut -d ':' -f 2 | tr "\"" " "`
 if [ $name == "off/any" ]
 then
 	echo " OFF"
 else
-	echo "" $name
+	echo "" $name ""
 fi
