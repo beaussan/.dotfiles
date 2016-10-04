@@ -2,13 +2,22 @@
 	name = Nicolas Beaussart
 	email = nic.beaussart@gmail.com
 [push]
-	default = simple
+	default = upstream
 [alias]
 	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	flg = !"git lg1"
 
+	c = commit -m
+	a = add
+
 	oops = commit --amend --no-edit
 
 [github]
-	user = beaussart
+	user = Beaussart
+[color]
+    ui = auto
+[credential]
+    helper = store
+#[help]
+#    autocorrect = -1
