@@ -19,6 +19,6 @@
 [color]
     ui = auto
 [credential]
-    helper = store
+    helper = gnome-keyring
 #[help]
 #    autocorrect = -1
