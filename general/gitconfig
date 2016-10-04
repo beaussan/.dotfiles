@@ -10,6 +10,7 @@
 
 	c = commit -m
 	a = add
+	cam = commit -a -m 
 
 	oops = commit --amend --no-edit
 
