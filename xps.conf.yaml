@@ -8,3 +8,4 @@
 
 - link:
     ~/.config/yabar/yabar.conf: xps/yabar.conf
+    ~/.Xresources: xps/Xresources
