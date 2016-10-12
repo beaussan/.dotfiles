@@ -24,14 +24,14 @@ for lines in list1:
 
                 if stline[1] == "discharging":
 			state = "Discharging"
-                        label = " "
+                        label = "  "
 
 		elif stline[1] == "fully-charged":
 			state = "On AC"
-                        label = " "
+                        label = "  "
 
                 else:
-                  label = " "
+                  label = "  "
 
-statestring = label + per
+statestring = label + per + " "
 print statestring

@@ -21,5 +21,5 @@ then
         :
     fi
 else
-    echo "  M "
+    echo "  M  "
 fi
