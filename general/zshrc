@@ -1,4 +1,4 @@
-export ZSH=/home/beaussan/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="xiong-chiamiov-plus"
 
@@ -19,7 +19,7 @@ zmodload zsh/complist
 
 plugins=(git common-aliases gradle colored-man-pages mvn zsh-syntax-highlighting)
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/jvm/default/bin"
+export PATH="$PATH:/usr/lib/jvm/default/bin/:~/bin"
 
 
 
@@ -32,7 +32,6 @@ export LS_COLORS=$LS_COLORS
 export EDITOR="nano"
 export VISUAL="nano"
 
-export PATH="$PATH:/home/beaussan/bin"
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman -Syyuu  && sudo pacman -Suu'
 alias sound="amixer sset 'Master' "
 

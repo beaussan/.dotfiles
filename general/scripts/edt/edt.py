@@ -1,65 +1,56 @@
-    #!/bin/env python3
+#!/bin/env python3
 from icalendar import Calendar, Event
 import datetime
 import pytz
 import os
 import time
-from datetime import date
+from datetime import date, timedelta
+import subprocess
 
-file = open(os.path.join(os.path.expanduser('~'),'scripts/edt/basic.ics'),'rb')
-cal= Calendar.from_ical(file.read())
+file = open(os.path.join(os.path.expanduser('~'),'scripts/edt/finalSimple'),'r')
+
 
 def lecturize(event):
     summary = str(event['SUMMARY'])
     return summary
-    
+
 def get_time(event):
     return (event['DTSTART'].dt, event['DTEND'].dt, event)
-    
-utc=pytz.timezone('Europe/Paris')
-    
 
-data = [(lecturize(e), get_time(e)) for e in cal.walk('vevent')]
+utc=pytz.timezone('Europe/Paris')
 
 now = utc.localize(datetime.datetime.now())
 nowTime = now.time()
 
-for name, eventData in data:
-    
-    #print(name + '\t\t' + str(eventData[0]))
-    if(eventData[0].weekday() == now.weekday()):
-        #print('helllooooooooooooooo')
-        #print(name+str(eventData[1].time() - now.time()))
-        startTime = eventData[0].time()
-        endTime = eventData[1].time()
-        #print(startTime)
-        #print(endTime)
-        if(startTime<= nowTime <= endTime):
-            #print(nowTime.hour - endTime.hour)
-            #print(nowTime.minute - endTime.minute)
-            #print(nowTime.second - endTime.second)
-            #print(endTime)
-            test = eventData[1].replace(year=now.year, day=now.day, month=now.month)
-            #print(test)
-            #print(now)
-            res = test - now
-            #print('res')
-            d = divmod(res.total_seconds(),86400)  # days
-            h = divmod(d[1],3600)  # hours
-            m = divmod(h[1],60)  # minutes
-            s = m[1]  # seconds
-            #print('test')
-            #print(h[0])
-            #print(m[0])
-            #print(s)
+start = file.readline()[:-2]
+title = file.readline()[:-1]
+duration = file.readline()[:-1]
 
-#print '%d days, %d hours, %d minutes, %d seconds' % (d[0],h[0],m[0],s)
-            
-            #print(res )
-            strin = '  ' + name + ' ('
-            if (h[0] != 0):
-                strin += str(int(h[0]))+'h'
-            strin += str(int(m[0]))+'m'+str(int(s))+'s) '
-            print(strin)
-        
-        
+
+startDate = utc.localize(datetime.datetime.now()).replace(
+            hour=int(start.split(':')[0]),
+                     minute=int(start.split(':')[1]),
+                                second=0, microsecond=0
+                     )
+endDate = startDate + timedelta(hours=int(duration.split(':')[0]), minutes=int(duration.split(':')[1]))
+
+durRemaning = endDate - now
+
+
+d = divmod(durRemaning.total_seconds(),86400)  # days
+h = divmod(d[1],3600)  # hours
+m = divmod(h[1],60)  # minutes
+s = m[1]  # seconds
+
+if(m[0] < 0 or int(s) < 0 or h[0] < 0 or d[0] < 0):
+    command1 = subprocess.Popen([os.path.join(os.path.expanduser('~'),'scripts/edt/createFile.sh')])
+    print("  ")
+    command1.wait()
+else:
+    strin='  ' + title+ " ("
+    if (h[0] != 0):
+        strin += str(int(h[0]))+'h'
+    if (m[0] != 0):
+        strin += str(int(m[0]))+'m'
+    strin += str(int(s))+'s)  '
+    print(strin)
