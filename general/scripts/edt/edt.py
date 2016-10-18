@@ -7,7 +7,19 @@ import time
 from datetime import date, timedelta
 import subprocess
 
-file = open(os.path.join(os.path.expanduser('~'),'scripts/edt/finalSimple'),'r')
+try:
+    file = open(os.path.join(os.path.expanduser('~'),'scripts/edt/finalSimple'),'r')
+except(FileNotFoundError):
+    command1 = subprocess.Popen([os.path.join(os.path.expanduser('~'),'scripts/edt/createFile.sh')])
+    
+    command1.wait()
+    try:
+        file = open(os.path.join(os.path.expanduser('~'),'scripts/edt/finalSimple'),'r')
+    except(FileNotFoundError):
+        print("  ")
+        
+        
+
 
 
 def lecturize(event):
