@@ -1,5 +1,5 @@
 XTerm*locale: true
-Xft.dpi: 96
+! Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: none
@@ -113,6 +113,7 @@ URxvt.tabbed.autohide:  yes
 URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
 
+Xft.dpi: 192
 
 ! == Rofi == !
 rofi.font: Monoisome 20

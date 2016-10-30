@@ -5,17 +5,17 @@ if [ $mute == "[on]" ]
 then
     if [ $vol -eq 100 ]
     then
-        echo "  $vol "
+        echo "  " # $vol "
     elif [ $vol -ge 50 ]
     then
-        echo "  $vol "
+        echo "  " #$vol "
     elif [ $vol -lt 50 ]
     then
         if [ $vol -lt 10 ]
         then
-            echo "  $vol "
+            echo "  " #$vol "
         else
-            echo "  $vol "
+            echo "  " #$vol "
         fi
     else
         :

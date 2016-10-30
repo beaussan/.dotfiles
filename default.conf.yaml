@@ -15,6 +15,6 @@
     ~/.Xresources: general/Xresources
     ~/scripts: general/scripts
     ~/.i3/config: general/i3config
-    ~/.i3blocks.conf: general/i3blocks.conf
+    ~/.compton.conf: general/compton.conf
     ~/.yaourtrc: general/yaourt
     ~/.gcalclirc: general/gcalclirc
