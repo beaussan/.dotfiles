@@ -1,0 +1,61 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      force: true
+
+
+- shell:
+  -
+    command : yaourt --needed --noconfirm -S fzy zsh 
+    description: Installing fonts
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    description: installing oh my zsh
+    stdin: true
+    stdout: true
+    stderr: true 
+  -
+    command : git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/alias-tips
+    description: installing yo and generators
+    stdin: true
+    stdout: true
+    stderr: true
+    stderr: true 
+  -
+    command : git clone https://github.com/b4b4r07/enhancd.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/enhancd
+    description: installing yo and generators
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/zsh-autosuggestions
+    description: installing yo and generators
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/zsh-syntax-highlighting
+    description: installing yo and generators
+    stdin: true
+    stdout: true
+    stderr: true # git submodule update --init --recursive ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/gitignore/templates
+  -
+    command : git clone https://github.com/voronkovich/gitignore.plugin.zsh.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/gitignore
+    description: installing yo and generators
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : git submodule update --init --recursive ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/gitignore/templates
+    description: installing yo and generators
+    stdin: true
+    stdout: true
+    stderr: true
+- link:
+    ~/.zshrc: general/zshrc
+- shell:
+  - source ~/.zshrc || true

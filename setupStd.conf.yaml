@@ -1,0 +1,33 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      force: true
+
+
+- shell:
+  -
+    command : yaourt --needed --noconfirm -S ttf-monoid ttf-unifont ttf-font-awesome
+    description: Installing fonts
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : yaourt --needed --noconfirm -S zsh ranger-git rofi-git pygmentize fzy xclip yabar-git evince perl-file-mimeinfo npm openssh thunar-archive-plugin thunar
+    description: Installing base software
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : yaourt --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src
+    description: Installing java software
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-8-openjdk/" >  /etc/profile.d/jdk.sh ' && source /etc/profile.d/jdk.sh
+    description: "Setup JAVA_HOME for arch"
+    stdin: true
+    stdout: true
+    stderr: true
+  - source ~/.zshrc || true
