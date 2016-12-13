@@ -17,7 +17,7 @@ compinit -C
 zmodload zsh/complist
 
 
-plugins=(git common-aliases gradle colored-man-pages mvn alias-tips gitignore zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git common-aliases gradle colored-man-pages mvn alias-tips gitignore zsh-autosuggestions yarn zsh-syntax-highlighting)
 
 export PATH="$PATH:/usr/lib/jvm/default/bin/:~/bin"
 
@@ -30,6 +30,9 @@ export LS_COLORS=$LS_COLORS
 
 export EDITOR="nano"
 export VISUAL="nano"
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
+export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=1
+
 
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman -Syyuu  && sudo pacman -Suu'
 alias sound="amixer sset 'Master' "
@@ -38,9 +41,6 @@ alias wifiTerm='nmtui'
 
 
 showcolors() { for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done }
-
-export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
-
 
 if [ -d ~/.zsh.d ]; then
     for i in ~/.zsh.d/*; do

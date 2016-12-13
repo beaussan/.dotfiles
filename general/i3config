@@ -40,6 +40,7 @@ set $workspace9 "9 "
 set $workspace10 "10 "
 
 assign [instance="dwb|Navigator|midori|Uzbl-tabbed"] $workspace2
+assign [class="vivaldi-stable"] $workspace2
 for_window [class="Midori"] floating enable
 for_window [title="Download"] floating enable
 for_window [title="Browser"] floating enable
