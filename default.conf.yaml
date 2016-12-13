@@ -18,3 +18,4 @@
     ~/.compton.conf: general/compton.conf
     ~/.yaourtrc: general/yaourt
     ~/.gcalclirc: general/gcalclirc
+    ~/.npmrc: general/npmrc
