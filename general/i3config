@@ -5,7 +5,8 @@ floating_modifier $mod
 focus_on_window_activation urgent
 set_from_resource $font font
 set_from_resource $barheight i3bar.height
-font pango: $font
+font pango:Monoisome 8
+# font pango: $font
 
 #Color Scheme
 set_from_resource $background background
@@ -28,19 +29,29 @@ set_from_resource $color14 color14
 set_from_resource $color15 color15
 
 # Workspaces and Assignments
-set $workspace1 "1  Text"
-set $workspace2 "2  Web"
-set $workspace3 "3  Code"
-set $workspace4 "4  Ide"
-set $workspace5 "5  Term"
-set $workspace6 "6  File"
-set $workspace7 "7 "
-set $workspace8 "8 "
-set $workspace9 "9 "
-set $workspace10 "10 "
+set $workspace1 ""
+#  Text"
+set $workspace2 ""
+#  Web"
+set $workspace3 ""
+#  Code"
+set $workspace4 ""
+#  Ide"
+set $workspace5 ""
+#  Term"
+set $workspace6 ""
+#  File"
+set $workspace7 "7"
+# 7"
+set $workspace8 "8"
+# 8"
+set $workspace9 "9"
+# 9"
+set $workspace10 "10"
+# 10"
 
 assign [instance="dwb|Navigator|midori|Uzbl-tabbed"] $workspace2
-assign [class="vivaldi-stable"] $workspace2
+assign [class="Vivaldi-stable"] $workspace2
 for_window [class="Midori"] floating enable
 for_window [title="Download"] floating enable
 for_window [title="Browser"] floating enable
@@ -68,14 +79,17 @@ bindsym $mod+p exec rofi -show run -terminal urxvtc -lines 5 -eh 3 -width 100 -p
 #bindsym $mod+shift+p exec --no-startup-id sh ~/scripts/rofis/dmenu-run.sh '
 bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -location 1 -xoffset 14 -p "Applications:" -sidebar-mode'
 
+# lock screen
+bindsym $mod+L exec ~/scripts/lock.sh
+
 bindsym $mod+Tab focus right
 
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+H move left
@@ -125,13 +139,41 @@ bindsym $mod+Shift+8 move container to workspace $workspace8; workspace $workspa
 bindsym $mod+Shift+9 move container to workspace $workspace9; workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $workspace10
 
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
 
 
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
 
-exec --no-startup-id feh --bg-scale ~/.dotfiles/xps/wall.jpg
+exec --no-startup-id feh --bg-scale ~/.dotfiles/laptop/wall.png
 #exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
-exec --no-startup-id xautolock -time 10 -locker i3lock-fancy -secure
+exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec compton -cb --config .compton.conf
 exec --no-startup-id exec compton -cb --config .compton.conf
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources
-exec yabar
+# exec yabar

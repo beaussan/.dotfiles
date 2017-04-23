@@ -9,11 +9,15 @@
 - link:
     ~/.zshrc: general/zshrc
     ~/.config/yabar/yabar.conf: general/yabar.conf
+    ~/.config/polybar/config: general/polybar.config
+    ~/.config/polybar/launch.sh: general/polybar.launch.sh
+    ~/.config/polybar/pkg.sh: general/polybar.pkg.sh
     ~/.gitconfig: general/gitconfig
     ~/.config/xfce4/terminal/terminalrc: general/xfce4termrc
     ~/.conkyrc: general/conkyrc
     ~/.Xresources: general/Xresources
     ~/scripts: general/scripts
+    ~/bin: general/bin
     ~/.i3/config: general/i3config
     ~/.compton.conf: general/compton.conf
     ~/.yaourtrc: general/yaourt

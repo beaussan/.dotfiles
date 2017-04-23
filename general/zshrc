@@ -2,6 +2,7 @@ export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="xiong-chiamiov-plus"
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 #ZSH_THEME="bullet-train"
 
