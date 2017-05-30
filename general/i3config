@@ -83,13 +83,23 @@ bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -location 1 
 bindsym $mod+L exec ~/scripts/lock.sh
 
 bindsym $mod+Tab focus right
+bindsym $mod+Tab+a focus left
 
+# allow focus wraping
+force_focus_wrapping no
 
 # change focus
 #bindsym $mod+h focus left
 #bindsym $mod+j focus down
 #bindsym $mod+k focus up
 #bindsym $mod+l focus right
+
+
+bindsym $mod+Left  focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
 
 # move focused window
 bindsym $mod+Shift+H move left

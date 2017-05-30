@@ -33,13 +33,17 @@ export EDITOR="nano"
 export VISUAL="nano"
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
 export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=1
+export ANDROID_HOME=/opt/android-sdk
 
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman -Syyuu  && sudo pacman -Suu'
 alias sound="amixer sset 'Master' "
 
 alias wifiTerm='nmtui'
 
+alias ys='yarn start'
 
 showcolors() { for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done }
 
@@ -57,3 +61,4 @@ fi
 ENHANCD_FILTER=fzy; export ENHANCD_FILTER
 
 source $ZSH/oh-my-zsh.sh
+alias tb="nc termbin.com 9999"
