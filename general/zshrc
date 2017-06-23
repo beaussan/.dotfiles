@@ -37,6 +37,7 @@ export ANDROID_HOME=/opt/android-sdk
 
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export PATH=${PATH}:~/.config/yarn/global/node_modules/.bin/
 
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman -Syyuu  && sudo pacman -Suu'
 alias sound="amixer sset 'Master' "
