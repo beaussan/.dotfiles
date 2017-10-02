@@ -22,3 +22,5 @@
     helper = gnome-keyring
 #[help]
 #    autocorrect = -1
+[url "https://"]
+	insteadOf = git://

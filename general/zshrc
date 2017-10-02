@@ -18,7 +18,7 @@ compinit -C
 zmodload zsh/complist
 
 
-plugins=(git common-aliases gradle colored-man-pages mvn alias-tips gitignore zsh-autosuggestions yarn zsh-syntax-highlighting)
+plugins=(git common-aliases gradle mvn alias-tips gitignore zsh-autosuggestions yarn zsh-syntax-highlighting)
 
 export PATH="~/.npm-global/bin:$PATH:/usr/lib/jvm/default/bin/:~/bin"
 

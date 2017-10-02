@@ -184,6 +184,7 @@ exec --no-startup-id feh --bg-scale ~/.dotfiles/laptop/wall.png
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec compton -cb --config .compton.conf
 exec --no-startup-id exec compton -cb --config .compton.conf
+exec --no-startup-id jetbrains-toolbox --disable-seccomp-filter-sandbox
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources
 # exec yabar
