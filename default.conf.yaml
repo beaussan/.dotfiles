@@ -23,3 +23,5 @@
     ~/.yaourtrc: general/yaourt
     ~/.gcalclirc: general/gcalclirc
     ~/.npmrc: general/npmrc
+    ~/.tmux.conf: general/tmux.conf
+    ~/.tmux.conf.local: general/tmux.conf.local
