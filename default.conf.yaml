@@ -19,6 +19,7 @@
     ~/scripts: general/scripts
     ~/bin: general/bin
     ~/.i3/config: general/i3config
+    ~/.i3/pad.png: general/pad.png
     ~/.compton.conf: general/compton.conf
     ~/.yaourtrc: general/yaourt
     ~/.gcalclirc: general/gcalclirc
