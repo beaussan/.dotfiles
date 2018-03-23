@@ -29,20 +29,20 @@ set_from_resource $color14 color14
 set_from_resource $color15 color15
 
 # Workspaces and Assignments
-set $workspace1 ""
-#  Text" f1d3
-set $workspace2 " Web"
+set $workspace1 ""
+#  Git"
+set $workspace2 ""
 #  Web"
-set $workspace3 " Code"
-#  Code"
-set $workspace4 " Ide"
+set $workspace3 ""
+#  term"
+set $workspace4 ""
 #  Ide"
-set $workspace5 ""
-#  Term"
-set $workspace6 ""
+set $workspace5 "" 
+#  chat"
+set $workspace6 ""
+#  random"
+set $workspace7 ""
 #  File"
-set $workspace7 "7"
-# 7"
 set $workspace8 "8"
 # 8"
 set $workspace9 "9"
@@ -53,13 +53,17 @@ set $workspace10 "10"
 assign [instance="dwb|Navigator|midori|Uzbl-tabbed"] $workspace2
 assign [class="Vivaldi-stable"] $workspace2
 for_window [class="Midori"] floating enable
-for_window [title="Download"] floating enable
 for_window [title="Browser"] floating enable
 for_window [title="Preferences"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [title="Xfce-notifyd"] floating enable
 assign [class="Thunar"] $workspace6
 assign [class="jetbrains-idea"] $workspace4
+assign [class="jetbrains-webstorm"] $workspace4
+assign [class="Google-chrome"] $workspace2
+assign [class="Slack"] $workspace5
+assign [class="Spotify"] $workspace5
+assign [class="GitKraken"] $workspace1
 
 
 # HIDE EDGE BORDERS
@@ -71,7 +75,7 @@ hide_edge_borders both
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec termite
 bindsym $mod+shift+t exec xfce4-terminal -e ranger
 bindsym $mod+p exec rofi -show run -terminal urxvtc -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoisome 11"
 
@@ -168,6 +172,10 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+        bindsym a resize set 1440 px 900 px
+        bindsym z resize set 1366 px 768 px
+        bindsym f floating toggle
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -188,7 +196,7 @@ gaps inner 10
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-exec --no-startup-id feh --bg-scale ~/.dotfiles/laptop/wall.png
+exec --no-startup-id feh --bg-scale ~/.dotfiles/laptop/wall.jpg
 #exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec compton -cb --config .compton.conf
