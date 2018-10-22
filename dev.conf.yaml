@@ -19,14 +19,8 @@
     stdout: true
     stderr: true
   -
-    command : yaourt --needed --noconfirm -S intellij-idea-ultimate-edition atom-editor sublime-text-dev aur/gitkraken
+    command : yaourt --needed --noconfirm -S sublime-text-dev aur/gitkraken
     description: Installing java software
     stdin: true
     stdout: true
     stderr: true
-  -
-    command : sudo npm install -g yo generator-jhipster gulp bower
-    description: installing yo and generators
-    stdin: true
-    stdout: true
-    stderr: true # sudo npm install -g yo generator-jhipster git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions

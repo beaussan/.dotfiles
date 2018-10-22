@@ -72,8 +72,8 @@ URxvt*color15 : #EEEEEC
 ! URxvt*font: fontlist
 ! Monoid HalfTight
 ! URxvt*font: xft: Monoid HalfTight:size=8
-URxvt*font: xft: Monoisome:size=10
-URxvt*boldFont: xft: Monoisome:bold:pixelsize=10
+URxvt*font: xft: Monoid Nerd Font:size=10
+URxvt*boldFont: xft: Monoid Nerd Font:bold=10
 
 !urxvt extensions:
 

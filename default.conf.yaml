@@ -26,3 +26,4 @@
     ~/.npmrc: general/npmrc
     ~/.tmux.conf: general/tmux.conf
     ~/.tmux.conf.local: general/tmux.conf.local
+    ~/.config/termite/config: general/termite.conf
