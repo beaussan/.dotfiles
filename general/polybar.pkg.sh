@@ -1,6 +1,6 @@
 #!/bin/bash
 # https://github.com/jaagr/polybar/wiki/User-contributed-modules#archlinux-updates
-pac=$(checkupdates | wc -l)
+pac=$(checkupdates-aur | wc -l)
 aur=$(cower -u | wc -l)
 
 check=$((pac + aur))

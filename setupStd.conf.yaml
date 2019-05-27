@@ -13,8 +13,26 @@
     stdout: true
     stderr: true
   -
-    command : yaourt --needed --noconfirm -S zsh ranger-git rofi-git pygmentize fzy xclip yabar-git evince perl-file-mimeinfo npm openssh thunar-archive-plugin thunar
+    command : yaourt --needed --noconfirm -S rofi-git zsh feh i3-gaps-next-git xautolock polybar termite tree i3lock-fancy-git cower compton checkupdates+aur checkupdates-aur lsd ranger-git rofi-git pygmentize fzy xclip evince perl-file-mimeinfo openssh thunar-archive-plugin thunar
     description: Installing base software
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : yaourt --needed --noconfirm -S yarn gitflow-avh gitflow-zshcompletion-avh nodejs jetbrains-toolbox npm nvm neovim
+    description: Installing codding tools
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : yaourt --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop
+    description: Installing other software 
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : yaourt --needed --noconfirm -S docker docker-compose && sudo systemctl enable docker && sudo systemctl start docker && sudo groupadd docker && sudo usermod -a -G docker $USER
+    description: Installing docker
     stdin: true
     stdout: true
     stderr: true
@@ -27,6 +45,24 @@
   -
     command : sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-8-openjdk/" >  /etc/profile.d/jdk.sh ' && source /etc/profile.d/jdk.sh
     description: "Setup JAVA_HOME for arch"
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command: mkdir -p ~/.local/share/fonts/monoid_nerd && cp ~/.dotfiles/fonts/monid_nerd/* ~/.local/share/fonts/monoid_nerd && sudo fc-cache
+    description: "Installing custom fonts"
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command: ssh-keygen -t rsa -b 4096
+    description: Generating ssh key
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command: yarn global add gitmoji-cli tldr wallhaven-fetcher
+    description: "Installing global tools via yarn"
     stdin: true
     stdout: true
     stderr: true

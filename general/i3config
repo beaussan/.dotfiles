@@ -63,6 +63,7 @@ assign [class="jetbrains-webstorm"] $workspace4
 assign [class="Google-chrome"] $workspace2
 assign [class="Slack"] $workspace5
 assign [class="Spotify"] $workspace5
+assign [title="Spotify"] $workspace5
 assign [class="GitKraken"] $workspace1
 assign [class="TelegramDesktop"] $workspace1
 
@@ -78,7 +79,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 bindsym $mod+shift+t exec xfce4-terminal -e ranger
-bindsym $mod+p exec rofi -show run -terminal urxvtc -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoid Nerd Font 11"
+bindsym $mod+p exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoid Nerd Font 11"
 
 # start dmenu (a program launcher)
 #bindsym $mod+shift+p exec --no-startup-id sh ~/scripts//dmenu-run.sh '
@@ -199,11 +200,12 @@ bindsym $mod+Shift+space floating toggle
 
 #exec --no-startup-id feh --bg-scale ~/.dotfiles/laptop/wall.jpg
 #exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
-exec --no-startup-id ~/scripts/random_wallpaper.sh
+#exec --no-startup-id ~/scripts/random_wallpaper.sh
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec compton -cb --config .compton.conf
 exec --no-startup-id exec compton -cb --config .compton.conf
 exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandbox
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources
+exec --no-startup-id exec $HOME/scripts/init_workspace.sh
 # exec yabar

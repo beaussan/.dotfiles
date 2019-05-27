@@ -17,20 +17,19 @@ bashcompinit
 compinit -C
 zmodload zsh/complist
 
+###### Plugins
+plugins=(git common-aliases gradle alias-tips gitignore zsh-autosuggestions yarn zsh-syntax-highlighting)
 
-plugins=(git common-aliases gradle mvn alias-tips gitignore zsh-autosuggestions yarn zsh-syntax-highlighting)
 
+###### Exports
 export PATH="~/scripts:~/bin:~/.npm-global/bin:$PATH:/usr/lib/jvm/default/bin/:~/bin/"
 
+#LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:';
 
+# export LS_COLORS=$LS_COLORS
 
-LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:';
-
-export LS_COLORS=$LS_COLORS
-
-
-export EDITOR="nano"
-export VISUAL="nano"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
 export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=1
 export ANDROID_HOME=/opt/android-sdk
@@ -39,14 +38,35 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:~/.config/yarn/global/node_modules/.bin/
 
-alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman -Syyuu  && sudo pacman -Suu'
-alias sound="amixer sset 'Master' "
 
+###### Alias
+
+alias vi="nvim"
+alias vim="nvim"
+alias ls="lsd"
 alias wifiTerm='nmtui'
 
 alias ys='yarn start'
 
+alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman -Syyuu  && sudo pacman -Suu'
+alias fixkeys='sudo pacman-key --populate archlinux antergos && sudo pacman-key --refresh-keys'
+
+alias sound="amixer sset 'Master' "
+alias tb="nc termbin.com 9999"
+
+###### Scripts
+
 showcolors() { for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done }
+
+function changeMac() {
+  local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+  sudo ifconfig wlp59s0 ether $mac
+  sudo ifconfig wlp59s0 down
+  sudo ifconfig wlp59s0 up
+  echo "Your new physical address is $mac"
+}
+
+###### Setups
 
 if [ -d ~/.zsh.d ]; then
     for i in ~/.zsh.d/*; do
@@ -62,9 +82,17 @@ fi
 ENHANCD_FILTER=fzy; export ENHANCD_FILTER
 
 source $ZSH/oh-my-zsh.sh
-alias tb="nc termbin.com 9999"
+
+# Load nvm init script
 source /usr/share/nvm/init-nvm.sh
 
 # added by travis gem
 [ -f /home/beaussan/.travis/travis.sh ] && source /home/beaussan/.travis/travis.sh
+
+# Load git flow completion
 source /usr/share/zsh/site-functions/git-flow-completion.zsh
+
+
+###### Overides
+
+alias la="ls -alh"
