@@ -198,7 +198,7 @@ gaps inner 10
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-#exec --no-startup-id feh --bg-scale ~/.dotfiles/laptop/wall.jpg
+exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
 #exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
 #exec --no-startup-id ~/scripts/random_wallpaper.sh
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
