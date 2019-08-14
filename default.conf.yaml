@@ -25,3 +25,4 @@
     ~/.tmux.conf.local: general/tmux.conf.local
     ~/.config/termite/config: general/termite.conf
     ~/.config/yay/config.json: general/yay.json
+    ~/.config/fontconfig/fonts.conf: general/font.conf
