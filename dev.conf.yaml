@@ -7,7 +7,7 @@
 
 - shell:
   -
-    command : yaourt --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src
+    command : yay --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src
     description: Installing java software
     stdin: true
     stdout: true
@@ -19,7 +19,7 @@
     stdout: true
     stderr: true
   -
-    command : yaourt --needed --noconfirm -S sublime-text-dev aur/gitkraken
+    command : yay --needed --noconfirm -S sublime-text-dev aur/gitkraken
     description: Installing java software
     stdin: true
     stdout: true

@@ -7,7 +7,7 @@
 
 - shell:
   -
-    command : yaourt --needed --noconfirm -S fzy zsh 
+    command : yay --needed --noconfirm -S fzy zsh 
     description: Installing fonts
     stdin: true
     stdout: true
