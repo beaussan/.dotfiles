@@ -13,7 +13,7 @@
     stdout: true
     stderr: true
   -
-    command : yay --needed --noconfirm -S gnu-netcat rofi-git zsh feh i3-gaps-next-git xautolock polybar termite tree i3lock-fancy-git cower compton checkupdates+aur checkupdates-aur lsd ranger-git rofi-git pygmentize fzy xclip evince perl-file-mimeinfo openssh thunar-archive-plugin thunar
+    command : yay --needed --noconfirm -S gnu-netcat rofi-git zsh feh fzf i3-gaps-next-git xautolock polybar termite tree i3lock-fancy-git cower compton checkupdates+aur checkupdates-aur lsd bat ranger-git rofi-git pygmentize fzy xclip evince perl-file-mimeinfo openssh thunar-archive-plugin thunar
     description: Installing base software
     stdin: true
     stdout: true
