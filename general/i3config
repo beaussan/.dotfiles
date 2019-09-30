@@ -29,25 +29,25 @@ set_from_resource $color14 color14
 set_from_resource $color15 color15
 
 # Workspaces and Assignments
-set $workspace1 ""
+set $workspace1 "1:"
 #  Git"
-set $workspace2 ""
+set $workspace2 "2:"
 #  Web"
-set $workspace3 ""
+set $workspace3 "3:"
 #  term"
-set $workspace4 ""
+set $workspace4 "4:"
 #  Ide"
-set $workspace5 "" 
+set $workspace5 "5:" 
 #  chat"
-set $workspace6 ""
+set $workspace6 "6:"
 #  random"
-set $workspace7 ""
+set $workspace7 "7:"
 #  File"
-set $workspace8 "8"
+set $workspace8 "8:8"
 # 8"
-set $workspace9 "9"
+set $workspace9 "9:9"
 # 9"
-set $workspace10 "10"
+set $workspace10 "10:10"
 # 10"
 
 assign [instance="dwb|Navigator|midori|Uzbl-tabbed"] $workspace2
@@ -106,6 +106,12 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+
+# move to monitor
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to output right
+bindsym $mod+Shift+Up move workspace to output up
+bindsym $mod+Shift+Down move workspace to output down
 
 # move focused window
 bindsym $mod+Shift+H move left

@@ -12,19 +12,19 @@ set -x
 # HAVE FUN !
 
 
-workspace1=""
+workspace1="1:"
 #  Git"
-workspace2=""
+workspace2="2:"
 #  Web"
-workspace3=""
+workspace3="3:"
 #  term"
-workspace4=""
+workspace4="4:"
 #  Ide"
-workspace5="" 
+workspace5="5:" 
 #  chat"
-workspace6=""
+workspace6="6:"
 #  random"
-workspace7=""
+workspace7="7:"
 
 # App you want to start :
 apps=(

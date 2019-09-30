@@ -1,5 +1,9 @@
 #!/bin/bash
-scrot -o /tmp/screenshot.png
-convert /tmp/screenshot.png -blur 0x5 /tmp/screenshotblur.png
-i3lock -b -i /tmp/screenshotblur.png
+
+img="/tmp/screenshot.png"
+
+scrot -o $img
+convert $img -scale 10% -scale 1000% $img
+# convert $img -blur 0x5 $img
+i3lock -b -i $img
 

@@ -59,6 +59,10 @@ alias fixkeys='sudo pacman-key --populate archlinux antergos && sudo pacman-key 
 alias sound="amixer sset 'Master' "
 alias tb="nc termbin.com 9999"
 
+alias bose="bluetoothctl power on &&  bluetoothctl connect 2C:41:A1:C7:50:25"
+
+alias -g C="| xclip -selection c"
+
 ###### Scripts
 
 showcolors() { for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done }
