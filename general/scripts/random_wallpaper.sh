@@ -1,4 +1,4 @@
 #!/bin/bash
 FILE=/tmp/wallpaper.jpg
-wallhaven forest --no-people --no-anime -r -o $FILE
+nbx w -o $FILE forest -r --general
 feh --bg-scale $FILE
