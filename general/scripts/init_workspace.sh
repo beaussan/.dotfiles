@@ -28,8 +28,8 @@ workspace7="7:"
 
 # App you want to start :
 apps=(
- #if you're using urxvt then replace st with that	
- "termite"
+ #if you're using urxvt then replace st with that
+ "notion"
  "telegram-desktop"
  "google-chrome-stable"
  "termite"
@@ -50,10 +50,12 @@ workspaces=(
 # counter of opened windows
 owNB=-1
 
+nativefier=$HOME/nativefier/bins
+
 # add paths of apps to array
 arr=()
 arr+=(
-    '/usr/bin/'
+    $nativefier
     '/usr/bin/'
     '/usr/bin/'
     '/usr/bin/'

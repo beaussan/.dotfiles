@@ -1,0 +1,26 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      force: true
+
+
+- shell:
+  -
+    command : mkdir -p ~/nativefier/bins
+    description: create folder for nativefier bins
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : yarn global add nativefier@latest
+    description: Install nativefier
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command : cd ~/nativefier && nativefier --name Notion -p linux -a x64 https://www.notion.so/ && ln -s ~/nativefier/notion-linux-x64/notion ~/nativefier/bins/notion
+    description: Install notion as nativefier app
+    stdin: true
+    stdout: true
+    stderr: true

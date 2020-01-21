@@ -63,9 +63,9 @@ assign [class="jetbrains-webstorm"] $workspace4
 assign [class="Google-chrome"] $workspace2
 assign [class="Slack"] $workspace5
 assign [class="Spotify"] $workspace5
-assign [title="Spotify"] $workspace5
 assign [class="GitKraken"] $workspace1
 assign [class="TelegramDesktop"] $workspace1
+assign [class="notion-nativefier"] $workspace1
 
 
 # HIDE EDGE BORDERS
@@ -88,6 +88,9 @@ bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -location 1 
 # lock screen
 bindsym $mod+L exec ~/scripts/lock.sh
 
+# Screenshoot
+bindsym $mod+s exec flameshot gui
+
 bindsym $mod+Tab focus right
 bindsym $mod+Tab+a focus left
 
@@ -106,6 +109,10 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+# audio with bose keys + spofify
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # move to monitor
 bindsym $mod+Shift+Left move workspace to output left
@@ -134,7 +141,7 @@ bindsym $mod+q kill
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, default)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
@@ -210,6 +217,7 @@ exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec compton -cb --config .compton.conf
 exec --no-startup-id exec compton -cb --config .compton.conf
+exec --no-startup-id flameshot
 exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandbox
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources

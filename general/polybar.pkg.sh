@@ -1,7 +1,7 @@
 #!/bin/bash
 # https://github.com/jaagr/polybar/wiki/User-contributed-modules#archlinux-updates
-pac=$(checkupdates | wc -l)
-aur=$(checkupdates-aur | wc -l)
+pac=$(checkupdates 2>/dev/null | wc -l)
+aur=$(checkupdates-aur 2>/dev/null | wc -l)
 
 check=$((pac + aur))
 if [[ "$check" != "0" ]]
