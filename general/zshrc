@@ -39,9 +39,9 @@ export GOPATH=/home/${USER}/go
 
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=${PATH}:~/.yarn/bin:~/.config/yarn/global/node_modules/.bin/
-export PATH=${PATH}:~/.local/bin
-export PATH=${PATH}:~/nativefier/bins
+export PATH=${PATH}:/home/${USER}/.yarn/bin:/home/${USER}/.config/yarn/global/node_modules/.bin/
+export PATH=${PATH}:/home/${USER}/.local/bin
+export PATH=${PATH}:/home/${USER}/nativefier/bins
 export PATH=${PATH}:${GOPATH}/bin
 
 export BROWSER=/usr/bin/google-chrome-stable
@@ -98,14 +98,17 @@ ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 source $ZSH/oh-my-zsh.sh
 
 # Load nvm init script
-source /usr/share/nvm/init-nvm.sh
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+  source /usr/share/nvm/init-nvm.sh
+fi
 
 # added by travis gem
 [ -f /home/beaussan/.travis/travis.sh ] && source /home/beaussan/.travis/travis.sh
 
 # Load git flow completion
-source /usr/share/zsh/site-functions/git-flow-completion.zsh
-
+if [ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ]; then
+  source /usr/share/zsh/site-functions/git-flow-completion.zsh
+fi
 
 ###### Overides
 
