@@ -27,3 +27,7 @@
 	insteadOf = git://
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main

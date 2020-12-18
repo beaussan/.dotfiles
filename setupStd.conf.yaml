@@ -4,66 +4,60 @@
       create: true
       force: true
 
-
 - shell:
-  -
-    command : yay --needed --noconfirm -S pacman-contrib ttf-monoid ttf-unifont ttf-font-awesome nerd-fonts-complete noto-fonts-emoji
-    description: Installing fonts
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command : yay --needed --noconfirm -S gnu-netcat rofi-git zsh feh fzf i3-gaps-next-git xautolock polybar termite tree i3lock-fancy-git cower compton checkupdates+aur checkupdates-aur lsd bat ranger-git rofi-git pygmentize fzy xclip evince perl-file-mimeinfo openssh thunar-archive-plugin thunar
-    description: Installing base software
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command : yay --needed --noconfirm -S yarn gitflow-avh gitflow-zshcompletion-avh nodejs jetbrains-toolbox npm nvm neovim
-    description: Installing codding tools
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command : yay --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop
-    description: Installing other software 
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command : yay --needed --noconfirm -S docker docker-compose && sudo systemctl enable docker && sudo systemctl start docker && sudo groupadd docker && sudo usermod -a -G docker $USER
-    description: Installing docker
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command : yay --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src
-    description: Installing java software
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command : sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-8-openjdk/" >  /etc/profile.d/jdk.sh ' && source /etc/profile.d/jdk.sh
-    description: "Setup JAVA_HOME for arch"
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command: mkdir -p ~/.local/share/fonts/monoid_nerd && cp ~/.dotfiles/fonts/monid_nerd/* ~/.local/share/fonts/monoid_nerd && sudo fc-cache
-    description: "Installing custom fonts"
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command: ssh-keygen -t rsa -b 4096
-    description: Generating ssh key
-    stdin: true
-    stdout: true
-    stderr: true
-  -
-    command: yarn global add gitmoji-cli tldr wallhaven-fetcher
-    description: "Installing global tools via yarn"
-    stdin: true
-    stdout: true
-    stderr: true
-  - source ~/.zshrc || true
+    - command: yay --needed --noconfirm -S pacman-contrib ttf-monoid ttf-unifont ttf-font-awesome nerd-fonts-complete noto-fonts-emoji
+      description: Installing fonts
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S termite lsd bat
+      description: Installing fonts
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S gnu-netcat rofi-git zsh feh fzf i3-gaps-next-git xautolock polybar tree i3lock-fancy-git cower compton checkupdates+aur checkupdates-aur ranger-git rofi-git pygmentize fzy xclip evince perl-file-mimeinfo openssh thunar-archive-plugin thunar
+      description: Installing base software
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S yarn gitflow-avh gitflow-zshcompletion-avh nodejs jetbrains-toolbox npm nvm neovim
+      description: Installing codding tools
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop
+      description: Installing other software
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S docker docker-compose && sudo systemctl enable docker && sudo systemctl start docker && sudo groupadd docker && sudo usermod -a -G docker $USER
+      description: Installing docker
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src
+      description: Installing java software
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: sudo sh -c 'echo "JAVA_HOME=/usr/lib/jvm/java-8-openjdk/" >  /etc/profile.d/jdk.sh ' && source /etc/profile.d/jdk.sh
+      description: "Setup JAVA_HOME for arch"
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: mkdir -p ~/.local/share/fonts/monoid_nerd && cp ~/.dotfiles/fonts/monid_nerd/* ~/.local/share/fonts/monoid_nerd && sudo fc-cache
+      description: "Installing custom fonts"
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: ssh-keygen -t rsa -b 4096
+      description: Generating ssh key
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yarn global add gitmoji-cli tldr wallhaven-fetcher
+      description: "Installing global tools via yarn"
+      stdin: true
+      stdout: true
+      stderr: true
+    - source ~/.zshrc || true

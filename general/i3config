@@ -82,7 +82,7 @@ bindsym $mod+shift+t exec xfce4-terminal -e ranger
 bindsym $mod+p exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoid Nerd Font 11"
 
 # start dmenu (a program launcher)
-#bindsym $mod+shift+p exec --no-startup-id sh ~/scripts//dmenu-run.sh '
+#bindsym $mod+shift+p edxec --no-startup-id sh ~/scripts//dmenu-run.sh '
 bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -location 1 -xoffset 14 -p "Applications:" -sidebar-mode'
 
 # lock screen
@@ -215,9 +215,10 @@ exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
 #exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
 #exec --no-startup-id ~/scripts/random_wallpaper.sh
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
-exec --no-startup-id exec compton -cb --config .compton.conf
-exec --no-startup-id exec compton -cb --config .compton.conf
+exec --no-startup-id exec picom -cb --config .compton.conf
+exec --no-startup-id exec picom -cb --config .compton.conf
 exec --no-startup-id flameshot
+exec --no-startup-id pasystray
 exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandbox
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources

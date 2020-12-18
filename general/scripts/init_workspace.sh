@@ -28,10 +28,10 @@ workspace7="7:"
 
 # App you want to start :
 apps=(
- #if you're using urxvt then replace st with that
  "notion"
  "telegram-desktop"
- "google-chrome-stable"
+ "termite"
+ #"google-chrome-stable"
  "termite"
  "termite"
  "slack"

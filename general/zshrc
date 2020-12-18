@@ -98,17 +98,13 @@ ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 source $ZSH/oh-my-zsh.sh
 
 # Load nvm init script
-if [ -f /usr/share/nvm/init-nvm.sh ]; then
-  source /usr/share/nvm/init-nvm.sh
-fi
+[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 # added by travis gem
 [ -f /home/beaussan/.travis/travis.sh ] && source /home/beaussan/.travis/travis.sh
 
 # Load git flow completion
-if [ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ]; then
-  source /usr/share/zsh/site-functions/git-flow-completion.zsh
-fi
+[ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] && source /usr/share/zsh/site-functions/git-flow-completion.zsh
 
 ###### Overides
 

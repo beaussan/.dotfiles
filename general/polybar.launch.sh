@@ -10,7 +10,9 @@ WIFI_CARD=$(iw dev | awk '$1=="Interface"{print $2}')
 # Launch bar1 and bar2
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m WIFI_CARD=$WIFI_CARD polybar downbar &
+    [[ $m = eDP1 ]] && tray="right" || tray=""
+    echo $m $tray $WIFI_CARD
+    MONITOR=$m WIFI_CARD=$WIFI_CARD TRAY_POSITION=$tray polybar downbar &
     MONITOR=$m WIFI_CARD=$WIFI_CARD polybar default &
   done
 else

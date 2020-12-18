@@ -20,6 +20,7 @@
     ~/bin: general/bin
     ~/.i3/config: general/i3config
     ~/.i3/pad.png: general/pad.png
+    ~/.nbxrc: general/nbxrc
     ~/.compton.conf: general/compton.conf
     ~/.tmux.conf: general/tmux.conf
     ~/.tmux.conf.local: general/tmux.conf.local
