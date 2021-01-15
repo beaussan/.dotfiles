@@ -29,7 +29,7 @@ bluetooth_print() {
                 if [ $counter -eq 0 ]; then
                     echo "%{F#ffffff}"
                 else
-                    echo "%{F#258df5} %{F#ffffff}$devices"
+                    echo "%{F#3B82F6} %{F#ffffff}$devices"
                 fi
 
                 # printf '\n'

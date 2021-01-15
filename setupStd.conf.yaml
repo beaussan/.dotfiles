@@ -11,12 +11,17 @@
       stdout: true
       stderr: true
     - command: yay --needed --noconfirm -S termite lsd bat
-      description: Installing fonts
+      description: Installing terminal and terminal tools
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S gnu-netcat rofi-git zsh feh fzf i3-gaps-next-git xautolock polybar tree i3lock-fancy-git cower compton checkupdates+aur checkupdates-aur ranger-git rofi-git pygmentize fzy xclip evince perl-file-mimeinfo openssh thunar-archive-plugin thunar
+    - command: yay --needed --noconfirm -S gnu-netcat perl-file-mimeinfo openssh 
       description: Installing base software
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: yay --needed --noconfirm -S rofi zsh feh fzf i3-gaps xautolock polybar tree i3lock-fancy-git picom checkupdates+aur checkupdates-aur ranger pygmentize fzy xclip evince perl-file-mimeinfo thunar-archive-plugin thunar 
+      description: Installing interface software
       stdin: true
       stdout: true
       stderr: true
@@ -45,18 +50,18 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: mkdir -p ~/.local/share/fonts/monoid_nerd && cp ~/.dotfiles/fonts/monid_nerd/* ~/.local/share/fonts/monoid_nerd && sudo fc-cache
-      description: "Installing custom fonts"
-      stdin: true
-      stdout: true
-      stderr: true
     - command: ssh-keygen -t rsa -b 4096
       description: Generating ssh key
       stdin: true
       stdout: true
       stderr: true
-    - command: yarn global add gitmoji-cli tldr wallhaven-fetcher
+    - command: yarn global add gitmoji-cli tldr @beaussan/nbx cloc 
       description: "Installing global tools via yarn"
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: sudo sed  -i 's/^#Color$/Color/' /etc/pacman.conf
+      description: Set pacman to use colors
       stdin: true
       stdout: true
       stderr: true

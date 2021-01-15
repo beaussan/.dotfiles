@@ -212,8 +212,6 @@ gaps inner 10
 bindsym $mod+Shift+space floating toggle
 
 exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
-#exec --no-startup-id xautolock -time 10 -locker /home/mathieu/scripts/lock.sh -secure
-#exec --no-startup-id ~/scripts/random_wallpaper.sh
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec picom -cb --config .compton.conf
 exec --no-startup-id exec picom -cb --config .compton.conf
@@ -223,4 +221,3 @@ exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandb
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources
 exec --no-startup-id exec $HOME/scripts/init_workspace.sh
-# exec yabar
