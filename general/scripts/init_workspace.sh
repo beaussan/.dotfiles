@@ -68,6 +68,7 @@ do
     while [ "$owNB" -lt "$iwin" ] # wait before start other programs
     do
         owNB=$(wmctrl -l | wc -l) # Get number of actual opened windows
+        wait 5
     done
     i3-msg workspace ${workspaces[$iwin]} # move in wanted workspace
     ${arr[$iwin]}/${apps[$iwin]} & # start the wanted app

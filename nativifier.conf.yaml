@@ -19,7 +19,7 @@
     stdout: true
     stderr: true
   -
-    command : cd ~/nativefier && nativefier --name Notion -p linux -a x64 https://www.notion.so/ && ln -s ~/nativefier/notion-linux-x64/notion ~/nativefier/bins/notion
+    command : cd ~/nativefier && nativefier --name notion -p linux -a x64 https://www.notion.so/ && ln -s ~/nativefier/notion-linux-x64/notion ~/nativefier/bins/notion
     description: Install notion as nativefier app
     stdin: true
     stdout: true

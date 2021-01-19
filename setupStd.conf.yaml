@@ -10,12 +10,12 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S termite lsd bat
+    - command: yay --needed --noconfirm -S termite lsd bat scrot
       description: Installing terminal and terminal tools
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S gnu-netcat perl-file-mimeinfo openssh 
+    - command: yay --needed --noconfirm -S gnu-netcat perl-file-mimeinfo openssh libgnome-keyring htop wmctrl autorandr
       description: Installing base software
       stdin: true
       stdout: true
@@ -30,12 +30,12 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop
+    - command: yay --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop code sublime-text-3 discord github-cli flameshot pasystray
       description: Installing other software
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S docker docker-compose && sudo systemctl enable docker && sudo systemctl start docker && sudo groupadd docker && sudo usermod -a -G docker $USER
+    - command: yay --needed --noconfirm -S docker docker-compose && sudo systemctl enable docker && sudo systemctl start docker && sudo usermod -a -G docker $USER
       description: Installing docker
       stdin: true
       stdout: true

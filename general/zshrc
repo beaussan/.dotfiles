@@ -98,7 +98,7 @@ ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 source $ZSH/oh-my-zsh.sh
 
 # Load nvm init script
-[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+#[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 # added by travis gem
 [ -f /home/beaussan/.travis/travis.sh ] && source /home/beaussan/.travis/travis.sh

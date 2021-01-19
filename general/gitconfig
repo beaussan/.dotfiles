@@ -1,7 +1,6 @@
 [user]
 	name = Nicolas Beaussart
 	email = nic.beaussart@gmail.com
-	signingkey = 51D5A407BFCE64A9
 [push]
 	default = upstream
 [alias]
@@ -25,8 +24,6 @@
 #    autocorrect = -1
 [url "https://"]
 	insteadOf = git://
-[commit]
-	gpgsign = true
 [pull]
 	rebase = false
 [init]
