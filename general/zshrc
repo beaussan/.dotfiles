@@ -23,6 +23,7 @@ plugins=(git common-aliases gradle alias-tips gitignore zsh-autosuggestions yarn
 
 ###### Exports
 # export PATH="~/scripts:~/bin:~/.npm-global/bin:$PATH:/usr/lib/jvm/default/bin/:~/bin/"
+export PATH=/usr/local/bin/:${PATH}
 export PATH=/home/${USER}/scripts:${PATH}
 export PATH=/home/${USER}/bin:${PATH}
 
