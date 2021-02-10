@@ -15,7 +15,7 @@
 	oops = commit --amend --no-edit
 
 [github]
-	user = Beaussart
+	user = beaussan
 [color]
     ui = auto
 [credential]
