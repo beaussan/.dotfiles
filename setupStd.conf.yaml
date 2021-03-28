@@ -30,7 +30,7 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop code sublime-text-3 discord github-cli flameshot pasystray
+    - command: yay --needed --noconfirm -S telegram-desktop spotify-dev slack-desktop code sublime-text-3 discord github-cli flameshot pasystray discord todoist rofi-emoji emojify espanso-bin protonvpn-cli-ng c-lolcat obsidian-appimage
       description: Installing other software
       stdin: true
       stdout: true

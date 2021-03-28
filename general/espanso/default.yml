@@ -1,0 +1,23 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+toggle_key: OFF
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: shell
+        params:
+          cmd: "date --rfc-3339=s"
+  - trigger: ":tod"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: shell
+        params:
+          cmd: "date --rfc-3339=date"

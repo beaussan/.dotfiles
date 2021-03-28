@@ -7,6 +7,7 @@
 - clean: ['~']
 
 - link:
+    ~/.config/espanso/default.yml: general/espanso/default.yml
     ~/.zshrc: general/zshrc
     ~/.config/yabar/yabar.conf: general/yabar.conf
     ~/.config/polybar/config: general/polybar.config
