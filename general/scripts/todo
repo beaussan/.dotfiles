@@ -1,0 +1,50 @@
+#!/bin/sh
+
+case "$1" in
+    add)
+        printf "What is the task ?\n=> "
+        read TITLE
+        PROJECT=$(todoist --project-namespace projects | fzf | head -n1 | cut -d ' ' -f 1)
+        DUE_DATE=$(echo "today|tomorrow|next week|next month" | tr '|' '\n' | fzf)
+        PRIORITY=$(echo "P4|P3|P2|P1" | tr '|' '\n' | fzf | cut -b 2)
+        echo todoist a \"$TITLE\" -p $PRIORITY -P $PROJECT -d \"$DUE_DATE\"
+        todoist a \"$TITLE\" -p $PRIORITY -P $PROJECT -d \"$DUE_DATE\"
+        ;;
+    add-gui)
+        VALUE=$(rofi -sep "|" -dmenu -p 'Title' "" -lines 0  -width 50 -opacity 80 -bw 0 )
+
+        if [ -z "$VALUE" ]; then
+            exit 0
+        fi
+        PRIORITY=$(echo "P4|P3|P2|P1" | rofi -sep "|" -dmenu -p 'Priority' "" -lines 4 -width 50 -opacity 80)
+
+        if [ -z "$PRIORITY" ]; then
+            PRIORITY="P4"
+        fi
+
+        PROJECT_WITH_ID=$(todoist ---project-namespace --csv projects)
+        PROJECT_LIST_FOR_ROFI=$(todoist --project-namespace --csv projects | cut -d , -f 2 | tr '\n' '|')
+
+        PROJECT=$(echo $PROJECT_LIST_FOR_ROFI | rofi -sep "|" -dmenu -p 'Project' "" -lines 9 -width 50 -opacity 80)
+        if [ -z "$PROJECT" ]; then
+            PROJECT=$(echo $PROJECT_WITH_ID | grep Inbox | cut -d , -f 1)
+        else
+            PROJECT=$(echo $PROJECT_WITH_ID | grep $PROJECT | cut -d , -f 1)
+        fi
+        DUE_DATE=$(echo "today|tomorrow|next week|next month" | rofi -sep "|" -dmenu -p 'Project' "" -lines 4 -width 50 -opacity 80)
+        echo todoist a \"$VALUE\" -p $(echo $PRIORITY | cut -b 2) -P $PROJECT -d \"$DUE_DATE\"
+
+        todoist a \"$VALUE\"  -p $(echo $PRIORITY | cut -b 2) -P $PROJECT -d \"$DUE_DATE\"
+        ;;
+    *)
+        case "$1" in
+            --show-count)
+                COUNT=$(todoist l -f "today | overdue" | wc -l)
+                echo "  $COUNT"
+                ;;
+            *)
+                todoist l -f ${A:="today | overdue"}
+                ;;
+        esac
+        ;;
+esac

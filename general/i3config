@@ -85,6 +85,10 @@ bindsym $mod+p exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -
 #bindsym $mod+shift+p edxec --no-startup-id sh ~/scripts//dmenu-run.sh '
 bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -location 1 -xoffset 14 -p "Applications:" -sidebar-mode'
 
+# emoji finder
+bindsym $mod+shift+e exec rofi -show emoji -modi emoji
+
+
 # lock screen
 bindsym $mod+L exec ~/scripts/lock.sh
 
@@ -228,7 +232,7 @@ new_window 1pixel
 
 #gaps inner all set 20
 
-gaps inner 10
+gaps inner 5
 
 
 # toggle tiling / floating
