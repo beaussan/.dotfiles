@@ -14,6 +14,13 @@ matches:
         type: shell
         params:
           cmd: "date --rfc-3339=s"
+  - trigger: ":uuid"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "uuidgen"    
   - trigger: ":tod"
     replace: "{{mydate}}"
     vars:
@@ -21,3 +28,11 @@ matches:
         type: shell
         params:
           cmd: "date --rfc-3339=date"
+  - trigger: ":wtc"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "curl -s whatthecommit.com/index.txt"
+

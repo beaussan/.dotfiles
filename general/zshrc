@@ -98,14 +98,25 @@ ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 
 source $ZSH/oh-my-zsh.sh
 
+sourceIfExists() {
+  [ -f $1 ] && source $1
+}
+
 # Load nvm init script
 #[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 # added by travis gem
-[ -f /home/beaussan/.travis/travis.sh ] && source /home/beaussan/.travis/travis.sh
+sourceIfExists /home/beaussan/.travis/travis.sh
+
+# Load FZF awesome sauce
+sourceIfExists /usr/share/fzf/key-bindings.zsh
+sourceIfExists /usr/share/fzf/completion.zsh
+
 
 # Load git flow completion
-[ -f /usr/share/zsh/site-functions/git-flow-completion.zsh ] && source /usr/share/zsh/site-functions/git-flow-completion.zsh
+sourceIfExists /usr/share/zsh/site-functions/git-flow-completion.zsh
+
+eval "$(starship init zsh)"
 
 ###### Overides
 

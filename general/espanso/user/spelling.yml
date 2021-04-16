@@ -1,0 +1,17 @@
+name: spelling
+parent: default
+
+matches:
+# Compagny spelling
+  - trigger: "wordpress"
+    replace: "WordPress"
+  - trigger: "gitlab"
+    replace: "GitLab"
+  - trigger: "github"
+    replace: "GitHub"
+  - trigger: "aws"
+    replace: "AWS"
+  - trigger: "gcp"
+    replace: "GCP"
+  - trigger: "hasura"
+    replace: "Hasura"
