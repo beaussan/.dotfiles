@@ -44,7 +44,6 @@ export PATH=${PATH}:/home/${USER}/.yarn/bin:/home/${USER}/.config/yarn/global/no
 export PATH=${PATH}:/home/${USER}/.local/bin
 export PATH=${PATH}:/home/${USER}/nativefier/bins
 export PATH=${PATH}:${GOPATH}/bin
-
 export BROWSER=/usr/bin/google-chrome-stable
 
 export BAT_THEME=ansi-dark
