@@ -36,4 +36,3 @@ matches:
         type: shell
         params:
           cmd: "curl -s whatthecommit.com/index.txt"
-
