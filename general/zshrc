@@ -46,7 +46,7 @@ export PATH=${PATH}:/home/${USER}/nativefier/bins
 export PATH=${PATH}:${GOPATH}/bin
 export BROWSER=/usr/bin/google-chrome-stable
 
-export BAT_THEME=ansi-dark
+export BAT_THEME=ansi
 
 ###### Alias
 
@@ -114,6 +114,12 @@ sourceIfExists /usr/share/fzf/completion.zsh
 
 # Load git flow completion
 sourceIfExists /usr/share/zsh/site-functions/git-flow-completion.zsh
+
+
+# Force load autocompletions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+
 
 eval "$(starship init zsh)"
 
