@@ -11,6 +11,7 @@ NETWORK_TABS='wlan-full'
 
 if [ $hs = "gaya" ]; then
    NETWORK_TABS='wlan-soft eth-full'
+   NETWORK_TABS='wlan-full eth-full'
 fi
 
 MODULE_BOTTOM_RIGHT="$NETWORK_TABS xbacklight battery cpu memory temperature"
@@ -27,11 +28,11 @@ if type "xrandr"; then
         MODULE_BOTTOM_RIGHT="$NETWORK_TABS cpu memory temperature"
         tray=""
         case "$m" in
-          DP-1)
+          DP-3)
             MODULE_BOTTOM_RIGHT="cpu memory temperature"
             MODULE_TOP_RIGHT="volume date Shutdown"
           ;;
-          DP-2)
+          DP-0)
             tray="right"
             MODULE_TOP_RIGHT="volume isrunning-picom pkg time-SF time-BENGA date Shutdown"
           ;;

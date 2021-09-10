@@ -5,7 +5,9 @@ CURRENT_FILTER=$(cat ~/fakecamconf/config | head -n 1)
 
 case "$1" in
     --toggle)
-        res=$(echo "blur|starWars|image|green|none|off" | rofi -sep "|" -dmenu -i -p 'Blur: ' "" -hide-scrollbar -width 20 -sidebar-mode)
+        res=$(echo "blur|starWars|image|green|none|hasura|off" | rofi -sep "|" -dmenu -i -p 'Blur: ' "" -hide-scrollbar -width 20 -sidebar-mode)
+
+        if [ -z "$res" ]; then exit 0; fi
 
         if [[ "$res" == "off" ]]; then
             docker stop fakecam
