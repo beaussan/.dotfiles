@@ -29,6 +29,27 @@ matches:
         type: shell
         params:
           cmd: "date --rfc-3339=date"
+  - trigger: ":mon"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: shell
+        params:
+          cmd: "date +\"%G-%m\""
+  - trigger: ":fac"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: shell
+        params:
+          cmd: "date +\"%G-%m-facture-\""
+  - trigger: ":mfac"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: shell
+        params:
+          cmd: "date +\"mv ~/Téléchargements/%G-%m-facture-\""
   - trigger: ":wtc"
     replace: "{{output}}"
     vars:

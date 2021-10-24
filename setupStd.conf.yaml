@@ -10,7 +10,7 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S termite lsd bat scrot starship
+    - command: yay --needed --noconfirm -S termite alacritty lsd bat scrot starship
       description: Installing terminal and terminal tools
       stdin: true
       stdout: true

@@ -15,6 +15,7 @@
     ~/.config/polybar/config: general/polybar.config
     ~/.config/polybar/launch.sh: general/polybar.launch.sh
     ~/.config/polybar/pkg.sh: general/polybar.pkg.sh
+    ~/.config/alacritty/alacritty.yml: general/alacritty.yml
     ~/.gitconfig: general/gitconfig
     ~/.config/xfce4/terminal/terminalrc: general/xfce4termrc
     ~/.conkyrc: general/conkyrc

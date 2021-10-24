@@ -30,10 +30,8 @@ workspace7="7:"
 apps=(
  "notion"
  "telegram-desktop"
- "termite"
+ "alacritty"
  #"google-chrome-stable"
- "termite"
- "termite"
  "slack"
 )
 
@@ -42,8 +40,6 @@ workspaces=(
  $workspace1
  $workspace1
  $workspace2
- $workspace3
- $workspace4
  $workspace5
 )
 
@@ -56,8 +52,6 @@ nativefier=$HOME/nativefier/bins
 arr=()
 arr+=(
     $nativefier
-    '/usr/bin/'
-    '/usr/bin/'
     '/usr/bin/'
     '/usr/bin/'
     '/usr/bin/'

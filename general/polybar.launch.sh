@@ -50,14 +50,32 @@ if type "xrandr"; then
       ;;
     esac
 
-    echo monitor : $m
-    echo tray : $tray
-    echo wifiCard: $WIFI_CARD
-    echo networkTabs: "$NETWORK_TABS"
-    echo MODULE_BOTTOM_RIGHT: "$MODULE_BOTTOM_RIGHT"
-    echo MODULE_TOP_RIGHT: "$MODULE_TOP_RIGHT"
-    MODULE_BOTTOM_RIGHT="$MODULE_BOTTOM_RIGHT" MODULE_TOP_RIGHT="$MODULE_TOP_RIGHT" MONITOR=$m WIFI_CARD=$WIFI_CARD TRAY_POSITION=$tray polybar downbar &
-    MODULE_BOTTOM_RIGHT="$MODULE_BOTTOM_RIGHT" MODULE_TOP_RIGHT="$MODULE_TOP_RIGHT" MONITOR=$m WIFI_CARD=$WIFI_CARD TRAY_POSITION=$tray polybar default &
+    LOGFILE="$HOME/.config/polybar/$m.log"
+    LOGFILE_BOTTOM="$HOME/.config/polybar/$m.downbar.log"
+    LOGFILE_UP="$HOME/.config/polybar/$m.default.log"
+
+    touch $LOGFILE_BOTTOM $LOGFILE_UP
+
+    echo monitor : $m | tee $LOGFILE_BOTTOM $LOGFILE_UP > /dev/null
+    echo tray : $tray | tee -a $LOGFILE_BOTTOM $LOGFILE_UP > /dev/null
+    echo wifiCard: $WIFI_CARD | tee -a $LOGFILE_BOTTOM $LOGFILE_UP > /dev/null
+    echo networkTabs: "$NETWORK_TABS" | tee -a $LOGFILE_BOTTOM $LOGFILE_UP > /dev/null
+    echo MODULE_BOTTOM_RIGHT: "$MODULE_BOTTOM_RIGHT" | tee -a $LOGFILE_BOTTOM $LOGFILE_UP > /dev/null
+    echo MODULE_TOP_RIGHT: "$MODULE_TOP_RIGHT" | tee -a $LOGFILE_BOTTOM $LOGFILE_UP > /dev/null
+
+    MODULE_BOTTOM_RIGHT="$MODULE_BOTTOM_RIGHT" \
+    MODULE_TOP_RIGHT="$MODULE_TOP_RIGHT" \
+    MONITOR=$m \
+    WIFI_CARD=$WIFI_CARD \
+    TRAY_POSITION=$tray \
+    polybar downbar 2>&1 | tee -a $LOGFILE_BOTTOM > /dev/null & disown
+
+    MODULE_BOTTOM_RIGHT="$MODULE_BOTTOM_RIGHT" \
+    MODULE_TOP_RIGHT="$MODULE_TOP_RIGHT" \
+    MONITOR=$m \
+    WIFI_CARD=$WIFI_CARD \
+    TRAY_POSITION=$tray \
+    polybar default 2>&1 | tee -a $LOGFILE_UP > /dev/null & disown
   
   done
 else
