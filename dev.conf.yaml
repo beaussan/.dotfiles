@@ -1,10 +1,3 @@
-- defaults:
-    link:
-      relink: true
-      create: true
-      force: true
-
-
 - shell:
   -
     command : yay --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src

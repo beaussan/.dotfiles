@@ -127,3 +127,5 @@ eval "$(starship init zsh)"
 
 alias ls="lsd"
 alias la="ls -alh"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

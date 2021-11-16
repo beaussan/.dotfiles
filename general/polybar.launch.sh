@@ -30,17 +30,17 @@ if type "xrandr"; then
         case "$m" in
           DP-3)
             MODULE_BOTTOM_RIGHT="cpu memory temperature"
-            MODULE_TOP_RIGHT="volume date Shutdown"
+            MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg date Shutdown"
           ;;
           DP-0)
             tray="right"
-            MODULE_TOP_RIGHT="volume isrunning-picom pkg time-SF time-BENGA date Shutdown"
+            MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg time-SF time-BENGA date Shutdown"
           ;;
           DP-5)
-            MODULE_TOP_RIGHT="volume isrunning-picom pkg date Shutdown"
+            MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg date Shutdown"
           ;;
           *)
-            MODULE_TOP_RIGHT="volume isrunning-picom pkg date Shutdown"
+            MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg date Shutdown"
           ;;
         esac
       ;;
@@ -52,7 +52,7 @@ if type "xrandr"; then
 
     LOGFILE="$HOME/.config/polybar/$m.log"
     LOGFILE_BOTTOM="$HOME/.config/polybar/$m.downbar.log"
-    LOGFILE_UP="$HOME/.config/polybar/$m.default.log"
+    LOGFILE_UP="$HOME/.config/polybar/$m.topbar.log"
 
     touch $LOGFILE_BOTTOM $LOGFILE_UP
 
@@ -75,12 +75,12 @@ if type "xrandr"; then
     MONITOR=$m \
     WIFI_CARD=$WIFI_CARD \
     TRAY_POSITION=$tray \
-    polybar default 2>&1 | tee -a $LOGFILE_UP > /dev/null & disown
+    polybar topbar 2>&1 | tee -a $LOGFILE_UP > /dev/null & disown
   
   done
 else
-  polybar downbar &
-  polybar default &
+  polybar --reload downbar &
+  polybar --reload topbar &
 fi
 
 echo "Bars launched..."

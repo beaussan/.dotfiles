@@ -240,6 +240,8 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+O exec ~/scripts/keyboard_switch.sh --toggle &
 
+
+exec --no-startup-id dunst
 exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 exec --no-startup-id exec picom -cb --config .compton.conf

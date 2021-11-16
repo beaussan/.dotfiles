@@ -1,9 +1,3 @@
-- defaults:
-    link:
-      relink: true
-      create: true
-      force: true
-
 - shell:
     - command: yay --needed --noconfirm -S pacman-contrib ttf-monoid ttf-unifont ttf-font-awesome nerd-fonts-complete noto-fonts-emoji
       description: Installing fonts

@@ -28,7 +28,6 @@ workspace7="7:"
 
 # App you want to start :
 apps=(
- "notion"
  "telegram-desktop"
  "alacritty"
  #"google-chrome-stable"
@@ -37,7 +36,6 @@ apps=(
 
 # Which workspace to assign your wanted App :
 workspaces=(
- $workspace1
  $workspace1
  $workspace2
  $workspace5
@@ -51,7 +49,6 @@ nativefier=$HOME/nativefier/bins
 # add paths of apps to array
 arr=()
 arr+=(
-    $nativefier
     '/usr/bin/'
     '/usr/bin/'
     '/usr/bin/'

@@ -2,7 +2,7 @@
     link:
 #     relink: true
       create: true
-      force: true
+#      force: true
 
 - clean: ['~']
 
@@ -10,6 +10,7 @@
     ~/.config/espanso/default.yml: general/espanso/default.yml
     ~/.config/espanso/user: general/espanso/user
     ~/.config/starship.toml: general/starship.toml
+    ~/.config/dunst/dunstrc: general/dunstrc
     ~/.zshrc: general/zshrc
     ~/.config/yabar/yabar.conf: general/yabar.conf
     ~/.config/polybar/config: general/polybar.config
