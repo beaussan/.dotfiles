@@ -1,6 +1,6 @@
 #!/bin/sh
 
-STATUS=$(protonvpn status)
+STATUS=$(protonvpn-cli status)
 
 
 getItemByLabel() {
