@@ -34,7 +34,7 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src
+    - command: yay --needed --noconfirm -S jdk8-openjdk openjdk8-doc openjdk8-src volta-bin
       description: Installing java software
       stdin: true
       stdout: true
@@ -49,7 +49,7 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yarn global add gitmoji-cli tldr @beaussan/nbx cloc 
+    - command: volta install node && volta install gitmoji-cli tldr @beaussan/nbx cloc 
       description: "Installing global tools via yarn"
       stdin: true
       stdout: true

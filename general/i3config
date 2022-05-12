@@ -240,14 +240,31 @@ bindsym $mod+Shift+space floating toggle
 
 # bindsym $mod+O exec ~/scripts/keyboard_switch.sh --toggle &
 
+# Polkit agent for raised access
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# notification agent
 exec --no-startup-id dunst
+
+# Background
 exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
+
+# Auto lock
 exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
+
+# Transparency
 exec --no-startup-id exec picom -cb --config .compton.conf
+
+# Screenshot software
 exec --no-startup-id flameshot
+
+# Audio edit from tray
 exec --no-startup-id pasystray
+
+# jetbrain toolbox for ide
 exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandbox
+
+# polybars
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrdb ~/.Xresources
 exec --no-startup-id exec $HOME/scripts/init_workspace.sh

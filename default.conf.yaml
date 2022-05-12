@@ -2,13 +2,12 @@
     link:
 #     relink: true
       create: true
-#      force: true
+      force: true
 
 - clean: ['~']
 
 - link:
-    ~/.config/espanso/default.yml: general/espanso/default.yml
-    ~/.config/espanso/user: general/espanso/user
+    ~/.config/espanso: general/espanso
     ~/.config/starship.toml: general/starship.toml
     ~/.config/dunst/dunstrc: general/dunstrc
     ~/.zshrc: general/zshrc

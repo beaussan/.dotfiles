@@ -1,9 +1,0 @@
-name: spelling
-parent: default
-
-matches:
-# Compagny spelling
-  - trigger: "wordpress"
-    replace: "WordPress"
-  - trigger: "gcp"
-    replace: "GCP"
