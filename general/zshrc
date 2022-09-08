@@ -68,6 +68,9 @@ alias bose="bluetoothctl power on &&  bluetoothctl connect 2C:41:A1:C7:50:25"
 
 alias -g C="| xclip -selection c"
 
+# conflicts with the fd command
+#unalias fd
+
 ###### Scripts
 
 showcolors() { for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done }

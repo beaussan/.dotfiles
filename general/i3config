@@ -79,7 +79,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+shift+t exec xfce4-terminal -e ranger
-bindsym $mod+p exec rofi -show run -terminal alacritty -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoid Nerd Font 11"
+# obindsym $mod+p exec rofi -show run -terminal alacritty -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoid Nerd Font 11"
+bindsym $mod+p exec rofi -no-config -no-lazy-grab -show drun -modi drun -font "Monoid Nerd Font 11"
+
+bindsym $mod+o exec rofi -show window -lines 10 -location 2 -xoffset 0 -width 60
 
 # start dmenu (a program launcher)
 #bindsym $mod+shift+p edxec --no-startup-id sh ~/scripts//dmenu-run.sh '
@@ -245,6 +248,9 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # notification agent
 exec --no-startup-id dunst
+
+# Numlock
+exec_always --no-startup-id numlockx on
 
 # Background
 exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg

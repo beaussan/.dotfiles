@@ -9,12 +9,12 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S gnu-netcat perl-file-mimeinfo openssh libgnome-keyring htop wmctrl autorandr
+    - command: yay --needed --noconfirm -S gnu-netcat perl-file-mimeinfo openssh libgnome-keyring htop wmctrl autorandr numlockx fd
       description: Installing base software
       stdin: true
       stdout: true
       stderr: true
-    - command: yay --needed --noconfirm -S rofi zsh feh fzf i3-gaps xautolock polybar tree i3lock-fancy-git picom checkupdates+aur checkupdates-aur ranger pygmentize fzy xclip evince perl-file-mimeinfo thunar-archive-plugin thunar 
+    - command: yay --needed --noconfirm -S rofi zsh feh fzf i3-gaps xautolock polybar tree i3lock-fancy-git picom checkupdates+aur checkupdates-aur ranger pygmentize fzy xclip evince perl-file-mimeinfo thunar-archive-plugin thunar
       description: Installing interface software
       stdin: true
       stdout: true
@@ -49,7 +49,7 @@
       stdin: true
       stdout: true
       stderr: true
-    - command: volta install node && volta install gitmoji-cli tldr @beaussan/nbx cloc 
+    - command: volta install node && volta install gitmoji-cli tldr @beaussan/nbx cloc
       description: "Installing global tools via yarn"
       stdin: true
       stdout: true
