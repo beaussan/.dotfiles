@@ -76,44 +76,51 @@ hide_edge_borders both
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal
 bindsym $mod+Return exec alacritty
-bindsym $mod+shift+t exec xfce4-terminal -e ranger
+
 # obindsym $mod+p exec rofi -show run -terminal alacritty -lines 5 -eh 3 -width 100 -padding 285 -opacity 80 -bw 0 -font "Monoid Nerd Font 11"
-bindsym $mod+p exec rofi -no-config -no-lazy-grab -show drun -modi drun -font "Monoid Nerd Font 11"
 
-bindsym $mod+o exec rofi -show window -lines 10 -location 2 -xoffset 0 -width 60
+# App executor
+bindsym $mod+p exec .config/rofi/launcher/launcher.sh
+#bindsym $mod+p exec rofi -no-config -no-lazy-grab -show drun -modi drun -font "Monoid Nerd Font 11"
 
-# start dmenu (a program launcher)
-#bindsym $mod+shift+p edxec --no-startup-id sh ~/scripts//dmenu-run.sh '
-bindsym $mod+d exec i3-dmenu-desktop --dmenu='rofi -dmenu -show run -location 1 -xoffset 14 -p "Applications:" -sidebar-mode'
+# Look for open windows
+bindsym $mod+o exec .config/rofi/launcher/windows.sh
+#bindsym $mod+o exec rofi -show window -lines 10 -xoffset 0 -width 60
 
-# emoji finder
-bindsym $mod+shift+e exec rofi -show emoji -modi emoji
+# Emoji finder
+bindsym $mod+shift+e exec .config/rofi/launcher/emoji.sh
+#bindsym $mod+shift+e exec rofi -show emoji -modi emoji
 
+# Shortcut finder
+bindsym $mod+h exec .config/rofi/launcher/i3-keybindings.sh
 
-# lock screen
+# Layout easy switcher
+bindsym $mod+u exec .config/rofi/launcher/i3-layout.sh
+
+# Lock screen
 bindsym $mod+L exec ~/scripts/lock.sh
 
 # Screenshoot
 bindsym $mod+s exec flameshot gui
 
+# Move focus right
 bindsym $mod+Tab focus right
-bindsym $mod+Tab+a focus left
+# Move focus left
+bindsym $mod+Tab+Shift focus left
 
 # allow focus wraping
 force_focus_wrapping no
 
-# change focus
-#bindsym $mod+h focus left
-#bindsym $mod+j focus down
-#bindsym $mod+k focus up
-#bindsym $mod+l focus right
 
-
-bindsym $mod+Left  focus left
+# Move focus left
+bindsym $mod+Left focus left
+# Move focus down
 bindsym $mod+Down focus down
+# Move focus up
 bindsym $mod+Up focus up
+# Move focus right
 bindsym $mod+Right focus right
 
 # audio with media keys + spofify
@@ -153,7 +160,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
 
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+# Open to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
@@ -164,6 +171,8 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
+
+# Move app to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1 workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2; workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3; workspace $workspace3
@@ -256,10 +265,10 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id feh --bg-scale ~/.dotfiles/wall.jpg
 
 # Auto lock
-exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
+# exec --no-startup-id xautolock -time 10 -locker ~/scripts/lock.sh -secure
 
 # Transparency
-exec --no-startup-id exec picom -cb --config .compton.conf
+# exec --no-startup-id exec picom -cb --config .compton.conf
 
 # Screenshot software
 exec --no-startup-id flameshot
@@ -272,5 +281,9 @@ exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandb
 
 # polybars
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# load xressources 
 exec xrdb ~/.Xresources
+
+# Load up screens and windows
 exec --no-startup-id exec $HOME/scripts/init_workspace.sh

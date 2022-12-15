@@ -1,10 +1,10 @@
 - defaults:
     link:
-#     relink: true
+      #     relink: true
       create: true
       force: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.config/espanso: general/espanso
@@ -28,6 +28,7 @@
     ~/.compton.conf: general/compton.conf
     ~/.tmux.conf: general/tmux.conf
     ~/.tmux.conf.local: general/tmux.conf.local
+    ~/.config/rofi: general/rofi
     ~/.config/termite/config: general/termite.conf
     ~/.config/yay/config.json: general/yay.json
     ~/.config/fontconfig/fonts.conf: general/font.conf

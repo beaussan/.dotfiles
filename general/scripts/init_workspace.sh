@@ -29,13 +29,14 @@ workspace7="7:"
 # App you want to start :
 apps=(
  "telegram-desktop"
- "alacritty"
- #"google-chrome-stable"
+ "obsidian"
+ "google-chrome-stable"
  "slack"
 )
 
 # Which workspace to assign your wanted App :
 workspaces=(
+ $workspace1
  $workspace1
  $workspace2
  $workspace5
@@ -52,6 +53,7 @@ arr+=(
     '/usr/bin/'
     '/usr/bin/'
     '/usr/bin/'
+    '/usr/bin/'
 )
 
 for iwin in ${!apps[*]}
@@ -65,4 +67,13 @@ do
     ${arr[$iwin]}/${apps[$iwin]} & # start the wanted app
 done
 
+i3-msg workspace $workspace1
+i3-msg move workspace to output left
+i3-msg layout tabbed
+
+i3-msg workspace $workspace5
+i3-msg move workspace to output right
+i3-msg move workspace to output right
+
 i3-msg workspace $workspace2
+i3-msg move workspace to output right

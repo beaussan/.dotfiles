@@ -28,15 +28,16 @@ if type "xrandr"; then
         MODULE_BOTTOM_RIGHT="$NETWORK_TABS cpu memory temperature"
         tray=""
         case "$m" in
-          DP-3)
+          DP-1)
             MODULE_BOTTOM_RIGHT="cpu memory temperature"
             MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg date Shutdown"
           ;;
-          DP-0)
+          DP-2)
             tray="right"
             MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg time-SF time-BENGA date Shutdown"
           ;;
           DP-5)
+            MODULE_BOTTOM_RIGHT="cpu memory temperature"ss{}
             MODULE_TOP_RIGHT="volume notifications isrunning-picom pkg date Shutdown"
           ;;
           *)
