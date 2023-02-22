@@ -30,7 +30,7 @@ workspace7="7:"
 apps=(
  "telegram-desktop"
  "obsidian"
- "google-chrome-stable"
+ "alacritty"
  "slack"
 )
 

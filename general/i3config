@@ -99,6 +99,9 @@ bindsym $mod+h exec .config/rofi/launcher/i3-keybindings.sh
 # Layout easy switcher
 bindsym $mod+u exec .config/rofi/launcher/i3-layout.sh
 
+# Work log appender
+bindsym $mod+i exec .config/rofi/launcher/vaultInserter.sh
+
 # Lock screen
 bindsym $mod+L exec ~/scripts/lock.sh
 
