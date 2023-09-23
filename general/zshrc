@@ -20,40 +20,77 @@ zmodload zsh/complist
 ###### Plugins
 plugins=(git common-aliases gradle alias-tips gitignore zsh-autosuggestions yarn zsh-syntax-highlighting)
 
+###### Utils
+
+# Add file to path if the folder exists
+pathIfExists() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+# Same, but add it before the path
+prePathIfExists() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="$1:${PATH}"
+    fi
+}
+
+# Source a file if it exists
+sourceIfExists() {
+  [ -f $1 ] && source $1
+}
+
 
 ###### Exports
-# export PATH="~/scripts:~/bin:~/.npm-global/bin:$PATH:/usr/lib/jvm/default/bin/:~/bin/"
-export PATH=/usr/local/bin/:${PATH}
-export PATH=/home/${USER}/scripts:${PATH}
-export PATH=/home/${USER}/bin:${PATH}
 
-#LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:';
-
-# export LS_COLORS=$LS_COLORS
 
 export EDITOR="nvim"
 export VISUAL="nvim"
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
 export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=1
-export ANDROID_HOME=/home/${USER}/Android/Sdk
 export GOPATH=/home/${USER}/go
 
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=${PATH}:/home/${USER}/.yarn/bin:/home/${USER}/.config/yarn/global/node_modules/.bin/
-export PATH=${PATH}:/home/${USER}/.local/bin
-export PATH=${PATH}:/home/${USER}/nativefier/bins
-export PATH=${PATH}:${GOPATH}/bin
+export PATH=${PATH}
+
+prePathIfExists "/usr/local/bin/"
+
+prePathIfExists "/home/${USER}/scripts"
+
+prePathIfExists "/home/${USER}/bin"
+
+pathIfExists "/home/${USER}/.yarn/bin"
+
+pathIfExists "/home/${USER}/.config/yarn/global/node_modules/.bin/"
+
+
+pathIfExists "/home/${USER}/.local/bin"
+
+pathIfExists "${GOPATH}/bin"
+
+prePathIfExists "/home/${USER}/.local/share/JetBrains/Toolbox/scripts"
+
+pathIfExists "/home/${USER}/nativefier/bins"
+
+
+export VOLTA_HOME="$HOME/.volta"
+
+prePathIfExists "$VOLTA_HOME/bin"
+
 export BROWSER=/usr/bin/google-chrome-stable
 
 export BAT_THEME=ansi
 
 ###### Alias
 
+## Better standards
+
 alias vi="nvim"
 alias vim="nvim"
 alias ls="lsd"
 alias cat="bat"
+
+## Shortcuts
+
 alias wifiTerm='nmtui'
 
 alias ys='yarn start'
@@ -63,8 +100,6 @@ alias fixkeys='sudo pacman-key --populate archlinux antergos && sudo pacman-key 
 
 alias sound="amixer sset 'Master' "
 alias tb="nc termbin.com 9999"
-
-alias bose="bluetoothctl power on &&  bluetoothctl connect 2C:41:A1:C7:50:25"
 
 alias -g C="| xclip -selection c"
 
@@ -83,6 +118,44 @@ function changeMac() {
   echo "Your new physical address is $mac"
 }
 
+###### fzf utils
+
+# fkill - kill processes - list only the ones you can kill.
+fkill() {
+    local pid 
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi  
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi  
+}
+
+
+## Git aliases
+
+# Delete multiple branches in bulk
+alias fgitDeleteBranch="git branch --no-color | fzf -m | xargs -I {} git branch -D '{}'"
+
+# Checkout a branch based on the lattest commited 
+alias fgitCheckout="git branch --sort=-committerdate | fzf | tr -d '[:space:]' | xargs -I {} git checkout '{}'"
+
+## Docker aliases
+
+# mark all docker container to unless-stopped
+alias dockerSetAllUnlessStopped="docker update --restart=unless-stopped $(docker ps -qa)"
+
+# stop docker container by fuzzy search
+alias fdockerStop="docker ps --format "{{.Names}}" | fzf -m | xargs -I {} docker stop '{}'"
+
+# rm docker container by fussy search
+alias fdockerRm="docker ps --format "{{.Names}}" -a | fzf -m | xargs -I {} docker rm '{}'"
+
+
 ###### Setups
 
 if [ -d ~/.zsh.d ]; then
@@ -91,18 +164,11 @@ if [ -d ~/.zsh.d ]; then
     done
 fi
 
-if [ -d ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/enhancd ]; then
-	source ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/enhancd/init.sh
-fi
+sourceIfExists "${ZSH_CUSTOM1:-$ZSH/custom}/plugins/enhancd/init.sh"
 
-#ENHANCD_FILTER=fzy:fzf:peco
 ENHANCD_FILTER=fzf; export ENHANCD_FILTER
 
 source $ZSH/oh-my-zsh.sh
-
-sourceIfExists() {
-  [ -f $1 ] && source $1
-}
 
 # Load nvm init script
 #[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
@@ -130,5 +196,6 @@ eval "$(starship init zsh)"
 
 alias ls="lsd"
 alias la="ls -alh"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+alias vi="nvim"
+alias vim="nvim"
+alias cat="bat"

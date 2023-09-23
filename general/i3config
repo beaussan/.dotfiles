@@ -286,7 +286,7 @@ exec --no-startup-id jetbrains-toolbox --minimize --disable-seccomp-filter-sandb
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # load xressources 
-exec xrdb ~/.Xresources
+exec --no-startup-id xrdb ~/.Xresources
 
 # Load up screens and windows
 exec --no-startup-id exec $HOME/scripts/init_workspace.sh
